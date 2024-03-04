@@ -31,6 +31,7 @@ AD DS incluye componentes lógicos y físicos
 		* Un sitio es un contenedor de objetos de AD DS, como equipos y servicios que son específicos de una ubicación física. Esto es en comparación con un dominio, que representa la estructura lógica de objetos, como usuarios y grupos, además de los equipos
 	* Subnet
 		* Una subred es una parte de las direcciones IP de la red de una organización asignada a los equipos de un sitio. Un sitio puede tener más de una subred
+
 ### [Administración de controladores de dominio de AD DS y roles de FSMO](https://learn.microsoft.com/es-es/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/)
 
 ### __[Implementación de objetos de directiva de grupo](https://learn.microsoft.com/es-es/training/modules/implement-group-policy-objects/)__
