@@ -34,7 +34,7 @@ AD DS incluye componentes lógicos y físicos
 
 ### [Administración de controladores de dominio de AD DS y roles de FSMO](https://learn.microsoft.com/es-es/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/)
 
-### __[Implementación de objetos de directiva de grupo](https://learn.microsoft.com/es-es/training/modules/implement-group-policy-objects/)__
+### [Implementación de objetos de directiva de grupo](https://learn.microsoft.com/es-es/training/modules/implement-group-policy-objects/)
 
 ### [Administración de características avanzadas de AD DS](https://learn.microsoft.com/es-es/training/modules/manage-advanced-features-of-ad-ds/)
 
