@@ -47,3 +47,6 @@ ip addr add 192.168.1.10/24 dev interface
 ```
 
 La palabra **“dev”** se refiere a la **interfaz de red** a la cual se le está asignando la dirección IP. En este contexto, **“dev”** es una abreviatura de **“device”**, que en español significa **“dispositivo”**. Por lo tanto, la instrucción completa indica que estás agregando la dirección IP **192.168.1.10/24** a la interfaz de red especificada.
+## Diferencia entre `su` y `su -`
+- `su`: Cambia al usuario root pero mantiene el entorno del usuario anterior.
+- `su -`: Cambia al usuario root y carga el entorno completo del usuario root, como si hubieras iniciado sesión directamente como root.
