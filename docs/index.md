@@ -6,3 +6,4 @@ Páginas publicadas:
 * [Redes de datos II (Resumen)](./Redes%20de%20datos%20II)
 * [Laboratorio de Servidores y Redes I (Clase01)](./Clase%201)
 * [Laboratorio de Servidores y Redes I (Clase02)](./Clase%202)
+* [Laboratorio de Servidores y Redes I (Clase03)](./Clase%203)
