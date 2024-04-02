@@ -24,6 +24,7 @@ $ ssh -p 2022 istea@ip_anfitrion #IP de la máquina HOST
 ![DNS2.png](./DNS2.png)
 ## Resolución a través de `/etc/nsswitch.conf`
  ![DNS3.png](./DNS3.png)
+
  ## Administración de DNS a través de `systemd-resolved` 
  
  ![DNS4.png](./DNS4.png)
