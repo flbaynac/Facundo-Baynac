@@ -92,3 +92,31 @@ Configuración ip estáticas (unidad 2)
 | /2   | 192.0.0.0       | 63.255.255.255  | 1,073,741,824     | 1,073,741,822            |     |
 | /1   | 128.0.0.0       | 127.255.255.255 | 2,147,483,648     | 2,147,483,646            |     |
 | /0   | 0.0.0.0         | 255.255.255.255 | 4,294,967,296     | 4,294,967,294            |     |
+The IP address 192.168.1.0 is commonly used as a Class C private IP address in home and small office networks.
+
+Let's explore why it's so prevalent:
+- Private IP Address Range:
+
+- The 192.168.0.0 to 192.168.255.255 address range is reserved for private networks.
+
+- These addresses are not routable on the public internet and are meant for internal use within LANs.
+- Home networks, relative to business networks, are typically small, making the smaller private address space of Class C suitable.
+- Specifics of 192.168.1.0:
+
+    - 192.168.1.0 is often chosen as the starting point for home networks.
+
+    - It provides a convenient base address for subnetting and creating smaller subnetworks.
+
+    - By using subnet masks, network administrators can divide this range into multiple subnets while maximizing the number of host addresses.
+
+
+- Subnetting Example:
+
+    -  Let's consider subnetting with a /26 subnet mask (255.255.255.192):
+    - Four subnets can be created: 192.168.1.0, 192.168.1.64, 192.168.1.128, and 192.168.1.192.
+
+    -  Each subnet can accommodate 62 hosts (2^6 - 2), where 6 bits are available for host addresses.
+
+    - The broadcast addresses for these subnets are 192.168.1.63, 192.168.1.127, 192.168.1.191, and 192.168.1.255.
+
+In summary, 192.168.1.0 is a common choice for home networks due to its simplicity, ease of subnetting, and ample host addresses.
