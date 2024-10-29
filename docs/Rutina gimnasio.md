@@ -2,15 +2,15 @@
 share: "true"
 ---
 
-| **Día**   | **Grupo muscular** |
-| --------- | ------------------ |
-| Lunes     | Hombros            |
-| Martes    | Tríceps, Bíceps    |
-| Miércoles | Libre              |
-| Jueves    | Pecho              |
-| Viernes   | Espalda            |
-| Sábado    | Piernas            |
-| Domingo   | Libre              |
+| Día       | Grupo muscular  |
+| --------- | --------------- |
+| Lunes     | Hombros         |
+| Martes    | Tríceps, Bíceps |
+| Miércoles | Libre           |
+| Jueves    | Pecho           |
+| Viernes   | Espalda         |
+| Sábado    | Piernas         |
+| Domingo   | Libre           |
 \*Faltan [ejercicios](https://www.cambiatufisico.com/ejercicios-gimnasio/) abdomen y cardio
 
 ### **Lunes - Hombros:**
