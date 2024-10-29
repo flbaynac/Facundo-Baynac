@@ -11,6 +11,7 @@ share: "true"
 | Viernes   | Espalda         |
 | Sábado    | Piernas         |
 | Domingo   | Libre           |
+
 \*Faltan [ejercicios](https://www.cambiatufisico.com/ejercicios-gimnasio/) abdomen y cardio
 
 ### **Lunes - Hombros:**
@@ -20,6 +21,7 @@ share: "true"
 | [Elevaciones laterales con mancuernas](./ejecucion-elevaciones-laterales-con-mancuernas.gif) | 3 series de 12 repeticiones |
 | [Elevaciones frontales con mancuernas](./ELEVACION-FRONTAL-CON-MANCUERNAS.gif)    | 3 series de 12 repeticiones |
 | [Press militar en máquina](./press-militar.gif)                                   | 3 series de 10 repeticiones |
+
 ### **Martes - Tríceps y Bíceps:**
 
 | Ejercicio                                                                             | Series                      |
