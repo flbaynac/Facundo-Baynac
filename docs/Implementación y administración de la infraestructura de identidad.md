@@ -45,17 +45,44 @@ Windows Server admite un objeto de AD DS, denominado cuenta de servicio admini
 	- Administración simplificada de contraseñas.
 	- Administración simplificada de SPN ([Service Principal Name](Service%20Principal%20Name.md)).
 #### Cuentas de servicio administradas de grupo (gMSA)
-#### Cuentas de servicio administradas delegadas
+Se utiliza en entornos de [Clústeres de equilibrio de carga de red (NLB)](Cl%C3%BAsteres%20de%20equilibrio%20de%20carga%20de%20red%20(NLB).md) o [Internet Information Services (IIS)](Internet%20Information%20Services%20(IIS).md) para poder usar una misma cuenta de servicio administrada en los servicios que se ejecutan en más de un servidor.
 
+Para admitir la funcionalidad de la cuenta de servicio administrada de grupo, el entorno debe cumplir los requisitos siguientes:
+- Debe crear una clave raíz KDS en un controlador de dominio en el dominio.
+- Para crear la clave raíz KDS, ejecute el siguiente comando desde el módulo Azure Active Directory para Windows PowerShell en un controlador de dominio de Windows Server.
+```powershell
+	Add-KdsRootKey –EffectiveImmediately
+```
+* Puede crear cuentas de servicio administradas de grupo mediante el cmdlet de Windows PowerShell `New-ADServiceAccount` con el parámetro `–PrinicipalsAllowedToRetrieveManagedPassword`.
+```powershell
+	New-ADServiceAccount -Name LondonSQLFarm 
+	-PrincipalsAllowedToRetrieveManagedPassword SEA-SQL1, SEA-SQL2, SEA-SQL3
+```
+
+#### Cuentas de servicio administradas delegadas (dMSA)
+**==Se incluye en Windows Server 2025==**
+Permite a los usuarios pasar de las [cuentas de servicio administradas](Implementaci%C3%B3n%20y%20administraci%C3%B3n%20de%20la%20infraestructura%20de%20identidad.md#cuentas%20de%20servicio%20administradas) a las cuentas de máquina que tienen claves administradas y completamente aleatorias, al tiempo que deshabilitan las contraseñas originales de la cuenta de servicio. La autenticación de dMSA está vinculada a la identidad del dispositivo, lo que significa que solo las identidades de máquina especificadas asignadas en AD pueden acceder a la cuenta. dMSA y gMSA son dos tipos de cuentas de servicio administradas que se usan para ejecutar servicios y aplicaciones en Windows Server. Un administrador administra una dMSA y se usa para ejecutar un servicio o una aplicación en un servidor específico. AD administra una gMSA y se usa para ejecutar un servicio o una aplicación en varios servidores. Otras diferencias son:
+- Uso de conceptos de gMSA para limitar el ámbito de uso mediante Credential Guard para enlazar la autenticación de la máquina.
+- Credential Guard se puede usar para mejorar la seguridad en dMSA rotando automáticamente las contraseñas y enlazando todos los vales de cuenta de servicio. Las cuentas heredadas se deshabilitan para mejorar aún más la seguridad.
+- Aunque las gMSA están protegidas con contraseñas de generación automática y autorrotación de máquinas, las contraseñas siguen sin estar enlazadas a la máquina y pueden ser robadas.
+#### Diferencia entre LAPS, MSA, gMSA y dMSA
+1. **LAPS (Local Administrator Password Solution)**:
+   - Gestiona las cuentas **locales** de administrador en los equipos individuales.
+   - Genera contraseñas aleatorias y únicas para cada equipo.
+   - Almacena las contraseñas de forma segura en Active Directory, pero sigue siendo para cuentas locales de los equipos.
+2. **MSA, gMSA y dMSA (Managed Service Accounts, Group Managed Service Accounts y Delegated Managed Service Accounts)**:
+   - Estas son cuentas de **dominio**, diseñadas específicamente para servicios o aplicaciones que requieren autenticación en un entorno de red.
+   - Sus contraseñas también son completamente aleatorias, generadas y gestionadas automáticamente por Active Directory.
+   - Son ideales para tareas más complejas, como ejecutar servicios en múltiples servidores (gMSA y dMSA) o en servidores individuales (MSA).
 ### Grupos:
 #### Tipos:
-* Seguridad
-* Distribución
+* **Seguridad**: se usan para asignar permisos a varios recursos. Puede utilizar grupos de seguridad en las entradas de permisos de las listas de control de acceso (ACL) para ayudar a controlar la seguridad del acceso a los recursos.
+* **Distribución**: Las aplicaciones de correo electrónico suelen usar grupos de distribución.
 #### Ámbito:
-* Local
-* Local de dominio
-* Global
-* Universal
+* **Local**: Utilice este tipo de grupo para estaciones de trabajo o servidores independientes, en servidores miembros del dominio que no sean controladores de dominio o en estaciones de trabajo que sean miembros del dominio.
+* **Local de dominio**: Este tipo de grupo se usa principalmente para administrar el acceso a los recursos o para asignar derechos y responsabilidades de administración. Los grupos locales de dominio **existen en los controladores de dominio**.
+* **Global**:  Este tipo de grupo se usa principalmente para consolidar **usuarios que tienen características similares** (Los miembros solo pueden ser del dominio local y pueden incluir usuarios, equipos y grupos globales del dominio local).
+* **Universal**: Este tipo de grupo se usa con más frecuencia en redes multidominio porque combina las características de los grupos locales de dominio y los grupos globales. **Los miembros pueden ser de cualquier parte del bosque de AD DS**.
 ### Equipos:
  
 # [Administración de controladores de dominio de AD DS y roles de FSMO](https://learn.microsoft.com/es-es/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/)
